@@ -1,5 +1,20 @@
+<script>
+	let heroSection;
+
+	const scrollDown = () => {
+		window.scrollTo({
+			top: heroSection.scrollHeight,
+			left: 0,
+			behavior: 'smooth'
+		});
+	};
+</script>
+
 <main>
-	<section class="intro h-screen grid grid-cols-1 grid-rows-1 bg-black pl-10 md:pl-24 2xl:pl-96">
+	<section
+		bind:this={heroSection}
+		class="intro h-screen grid grid-cols-1 grid-rows-1 bg-black pl-10 md:pl-24 2xl:pl-96"
+	>
 		<picture>
 			<source media="(max-width: 767px)" srcset="./header-mobile.png" />
 			<source media="(max-width: 1800px)" srcset="./header-medium.png" />
@@ -14,9 +29,14 @@
 			<h1 class="text-white font-display text-7xl sm:text-8xl font-bold">Recipe <br /> book</h1>
 		</div>
 		<span class="justify-self-end m-3 text-gray-700 hover:text-gray-200 transition-colors">
-			Photo by <a class="underline" target="_blank" href="https://unsplash.com/@sarahjulia">Sara Julie</a>
+			Photo by <a class="underline" target="_blank" href="https://unsplash.com/@sarahjulia"
+				>Sara Julie</a
+			>
 		</span>
-		<button class="flex space-x-3 uppercase tracking-wider text-raspberry hover:text-white transition-colors self-end justify-self-start mb-20">
+		<button
+			on:click={scrollDown}
+			class="flex space-x-3 uppercase tracking-wider text-raspberry hover:text-white transition-colors self-end justify-self-start mb-20"
+		>
 			<svg
 				width="22"
 				height="22"
