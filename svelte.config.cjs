@@ -1,3 +1,4 @@
+const sveltePreprocess = require("svelte-preprocess");
 const { mdsvex } = require("mdsvex");
 const mdsvexConfig = require("./mdsvex.config.cjs");
 const node = require('@sveltejs/adapter-node');
@@ -6,6 +7,12 @@ const pkg = require('./package.json');
 /** @type {import('@sveltejs/kit').Config} */
 module.exports = {
 	preprocess: [
+		sveltePreprocess({
+			defaults: {
+				style: "postcss",
+			},
+			postcss: true
+		}),
 		mdsvex(mdsvexConfig),
 	],
 	extensions: [".svelte", ...mdsvexConfig.extensions],
