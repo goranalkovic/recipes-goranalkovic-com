@@ -3,12 +3,27 @@ title: 'Ferrero Rocher cake'
 slug: 'ferrero-rocher-cake'
 outline: 'This one doesn’t need an introduction ;)'
 published_at: 'April 10, 2021'
+featured_image: '/images/ferrero-rocher-cake.jpg'
+featured_image_by: 'Natalya Drozhzhin, Momsdish'
 ---
 
-# Ferrero Rocher torta
+<script>
+    import RecipeHeading from '$lib/RecipeHeading.svelte';
+    import IngredientList from '$lib/IngredientList.svelte';
+    import PreparationSteps from '$lib/PreparationSteps.svelte';
+</script>
 
-## Sastojci
+<RecipeHeading
+{title} {outline} published={published_at}
+image={featured_image} imageBy={featured_image_by}
+/>
+
+<div class="content">
+
+<IngredientList>
+
 ### Biskvit
+
 - 150g oštrog brašna
 - 140g glatkog brašna
 - 1.5 žličica praška za pecivo
@@ -22,13 +37,16 @@ published_at: 'April 10, 2021'
 - 2 žličice arome vanilije
 
 ### Krema
+
 - 500g Nutella
 - 500g mascarpone
 - 250g prženih lješnjaka
 
-## Priprema
-### Biskvit
-1. U posudi pomiješati sve suhe sastojke
+</IngredientList>
+
+<PreparationSteps>
+
+1. U posudi pomiješati suhe sastojke
 2. U drugoj posudi pomiješati jaja, mlijeko, ulje i aromu vanilije
 3. Postepeno dodati mokre u suhe sastojke, dobro umiješati
 4. Dodati kipuću vodu, kratko pomiješati; tek da se sjedini
@@ -36,14 +54,13 @@ published_at: 'April 10, 2021'
 6. Uliti smjesu i staviti peći na 170°C oko 40 minuta
 7. Ostaviti biskvit da se potpuno ohladi
 8. Prerezati na 3 jednaka dijela
+9. Lješnjake rašiti po tepsiji i peći na 200°C dok ne porumene
+10. Pustiti lješnjake da se ohlade, zatim trljajući od dlanove ukloniti ljuskice s lješnjaka
+11. Nožem nasjeckati lješnjake
+12. Mascarpone sobne temperature izraditi s Nutellom, umiješati lješnjake
+13. Slagati u formatu biskvit-krema
+14. Vanjštinu ukrasiti po želji
+15. Dobro ohladiti prije serviranja
 
-### Krema
-1. Lješnjake rašiti po tepsiji i peći na 200°C dok ne porumene
-2. Pustiti lješnjake da se ohlade, zatim trljajući od dlanove ukloniti ljuskice s lješnjaka
-3. Nožem nasjeckati lješnjake
-4. Mascarpone sobne temperature izraditi s Nutellom, umiješati lješnjake
-
-### Assembly
-1. Slagati u formatu biskvit-krema
-2. Vanjštinu ukrasiti po želji
-3. Dobro ohladiti prije serviranja
+</PreparationSteps>
+</div>
