@@ -3,11 +3,25 @@ title: 'Banana bread'
 slug: 'banana-bread'
 outline: 'Quick, tasty, chocolatey and banana-y. <br> What’s more to say?'
 published_at: 'April 10, 2021'
+featured_image: '/images/banana-bread.jpg'
+featured_image_by: 'Alex Lau, Bon Appétit'
 ---
 
-# Banana bread
+<script>
+    import RecipeHeading from '$lib/RecipeHeading.svelte';
+    import IngredientList from '$lib/IngredientList.svelte';
+    import PreparationSteps from '$lib/PreparationSteps.svelte';
+</script>
 
-## Sastojci
+<RecipeHeading
+{title} {outline} published={published_at}
+image={featured_image} imageBy={featured_image_by}
+/>
+
+<div class="content">
+
+<IngredientList>
+
 - 270g brašna
 - 1 čajna žličica soli
 - 1 čajna žličica praška za pecivo
@@ -18,9 +32,11 @@ published_at: 'April 10, 2021'
 - 2 velika jaja
 - 1/4 čajne žličice ekstrakta vanilije
 - 1 jušna žlica mlijeka
-- ~40g čokoladnih komadića/kapljica
+- ~40g čokoladnih kapljica
 
-## Priprema
+</IngredientList>
+
+<PreparationSteps>
 
 0. Ostavi maslac na sobnu temperaturu da omekša
 1. Stavi pećnicu da se grije na 165°C
@@ -34,3 +50,6 @@ published_at: 'April 10, 2021'
 9. Lagano tapkaj kalup po radnoj plohi da mjehurići zraka izađu
 10. Peci oko 1h 10min
 11. Izvadi iz pećnice, pričekaj 15ak minuta da se malo ohladi i **sijeci**
+
+</PreparationSteps>
+</div>
