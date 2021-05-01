@@ -27,12 +27,12 @@
 <main>
 	<section class="relative h-[60vh] bg-black w-full">
 		<picture>
-			<source media="(max-width: 767px)" srcset="./header-mobile.png" />
-			<source media="(max-width: 1800px)" srcset="./header-medium.png" />
+			<source media="(max-width: 767px)" srcset="./header-mobile.jpg" />
+			<source media="(max-width: 1800px)" srcset="./header-medium.jpg" />
 			<img
 				class="object-cover h-full ml-auto mr-0 pointer-events-none select-none justify-self-end col-start-1 col-end-1 row-start-1 row-end-1"
-				src="./header-large.png"
-				alt="sliced strawberry and chocolate cake on white ceramic plate"
+				src="./header-large.jpg"
+				alt="Sliced strawberry and chocolate cake on white ceramic plate"
 			/>
 		</picture>
 		<div class="h-full w-full max-w-7xl mx-auto px-14  justify-center absolute top-0 left-0 right-0 flex flex-col select-none">
