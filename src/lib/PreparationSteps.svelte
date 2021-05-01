@@ -23,6 +23,7 @@
 	<div class="flex items-center justify-between mb-4">
 		<h2 class="p-0 m-0">Preparation</h2>
 
+		<!-- Include classes: text-muffin text-mint -->
 		<button
 			on:click={toggleFocusMode}
 			class:text-muffin={!focusMode}
@@ -81,8 +82,8 @@
 		</div>
 	{/if}
 
-	<!-- Include classes in output: opacity-10 opacity-20 -->
-	<ol class="space-y-4 list-none list-inside">
+	<!-- Include classes in output: opacity-10 opacity-20 text-xl -->
+	<ol class="space-y-4 list-none list-inside min-h-[22rem]">
 		{#each steps as item, i}
 			{#if !focusMode || (focusMode && i >= currentStep - 1 && i <= currentStep + 2)}
 				<li
@@ -92,7 +93,7 @@
 					class="flex items-start transition-opacity"
 				>
 					<span
-						class="flex-shrink-0 inline-block mr-4 font-bold text-center rounded-lg w-7 font-display text-muffin bg-muffin-100"
+						class="flex-shrink-0 inline-block mr-4 select-none font-bold text-center rounded-lg w-7 font-display text-muffin bg-muffin-100"
 						>{i + 1}</span
 					>
 					<span class:text-xl={focusMode} class="text-lg transition">{@html item}</span>
