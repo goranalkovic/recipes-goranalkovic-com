@@ -13,31 +13,25 @@
 	<meta property="og:image" content={image} />
 </svelte:head>
 
-<div class="grid grid-cols-1 grid-rows-1 select-none recipe-heading">
-	<img class="object-cover w-full h-full" src={image} alt={title} />
-	<span class="self-end m-4 text-gray-300 opacity-80 bg-blend-difference justify-self-end"
+<div class="relative select-none h-[85vh] md:h-[65vh]">
+	<img class="absolute inset-0 object-cover w-full h-full" src={image} alt={title} />
+	<span class="absolute bottom-4 right-4 text-gray-300 opacity-80 bg-blend-difference"
 		>Image by {imageBy}</span
 	>
-	<div
-		class="self-end p-8 mb-20 ml-40 mr-20 bg-white rounded-lg bg-opacity-80 backdrop-blur-md backdrop-filter justify-self-start"
-	>
-		<h1 class="text-6xl font-bold font-display text-muffin-600">{@html title}</h1>
-		<p class="text-lg text-gray-700">{@html outline}</p>
-		<p class="mt-8 text-gray-400">Added on {published}</p>
-	</div>
 
-	<a
-		class="self-start px-2.5 py-1 uppercase tracking-wider mt-20 ml-40 mr-20 bg-muffin-600 hover:bg-muffin-100 transition-colors hover:text-muffin-600 rounded-lg justify-self-start text-sm bg-opacity-60 text-muffin-100 backdrop-blur-md backdrop-filter"
+	<div class="absolute left-0 right-0 mx-auto h-full w-full max-w-7xl px-10 lg:px-32 py-16 flex flex-col items-start">
+		<a
+		class="self-start px-2.5 py-1 uppercase tracking-wider bg-muffin-600 hover:bg-muffin-100 transition-colors hover:text-muffin-600 rounded-lg text-sm bg-opacity-60 text-muffin-100 backdrop-blur-md backdrop-filter"
 		href="/">&larr; All recipes</a
 	>
+		<div
+			class="mt-auto p-8 bg-white rounded-lg bg-opacity-80 backdrop-blur-md backdrop-filter"
+		>
+			<h1 class="text-5xl mb-2 md:text-6xl font-bold font-display text-muffin-600">{@html title}</h1>
+			<p class="text-lg text-gray-700">{@html outline}</p>
+			<p class="mt-8 text-gray-400">Added on {published}</p>
+		</div>
+	</div>
+
+
 </div>
-
-<style lang="postcss">
-	.recipe-heading > * {
-		@apply col-start-1 col-end-1 row-start-1 row-end-1;
-	}
-
-	.recipe-heading {
-		height: 80vh;
-	}
-</style>
