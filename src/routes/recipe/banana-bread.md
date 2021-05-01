@@ -13,6 +13,8 @@ featured_image_by: 'Alex Lau, Bon Appétit'
     import PreparationSteps from '$lib/PreparationSteps.svelte';
 </script>
 
+<div class="recipe">
+
 <RecipeHeading
 {title} {outline} published={published_at}
 image={featured_image} imageBy={featured_image_by}
@@ -52,4 +54,6 @@ image={featured_image} imageBy={featured_image_by}
 11. Izvadi iz pećnice, pričekaj 15ak minuta da se malo ohladi i **sijeci**
 
 </PreparationSteps>
+</div>
+
 </div>

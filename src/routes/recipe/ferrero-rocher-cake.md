@@ -13,6 +13,8 @@ featured_image_by: 'Natalya Drozhzhin, Momsdish'
     import PreparationSteps from '$lib/PreparationSteps.svelte';
 </script>
 
+<div class="recipe">
+
 <RecipeHeading
 {title} {outline} published={published_at}
 image={featured_image} imageBy={featured_image_by}
@@ -63,4 +65,6 @@ image={featured_image} imageBy={featured_image_by}
 15. Dobro ohladiti prije serviranja
 
 </PreparationSteps>
+</div>
+
 </div>
