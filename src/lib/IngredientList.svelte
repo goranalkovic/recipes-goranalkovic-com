@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
+	import IngredientCheckbox from './IngredientCheckbox.svelte';
 
 	let ingredientsContainer;
 
@@ -18,6 +19,16 @@
 	});
 
 	let shoppingListVisible = false;
+
+	const showShoppingList = () => {
+		shoppingListVisible = true;
+		document.body.classList.add('overflow-hidden');
+	}
+
+	const hideShoppingList = () => {
+		shoppingListVisible = false;
+		document.body.classList.remove('overflow-hidden');
+	}
 </script>
 
 <section class="py-10 pr-4 md:border-r border-muffin-100 recipe-ingredients">
@@ -25,7 +36,7 @@
 		<h2 class="p-0 m-0">Ingredients</h2>
 
 		<button
-			on:click={() => (shoppingListVisible = true)}
+			on:click={showShoppingList}
 			class="flex items-center content-center p-1 mb-4 transition-colors rounded-lg text-muffin hover:bg-muffin-100"
 		>
 			<svg
@@ -55,27 +66,28 @@
 	</div>
 
 	{#if shoppingListVisible}
-		<div class="relative z-50 select-none" transition:fade>
+		<div class="relative z-50 select-none" in:fade={{duration: 250}} out:fade={{duration: 200, delay: 100}}>
 			<div
-				class="fixed inset-0 flex w-screen h-screen p-8 bg-black bg-opacity-90 bg-blend-multiply"
+				class="fixed inset-0 flex w-screen h-screen overflow-hidden max-h-screen py-8 px-4 bg-black bg-opacity-90 bg-blend-multiply"
 			>
-				<div class="absolute inset-0" on:click={() => (shoppingListVisible = false)} />
-				<div class="relative w-full max-w-xl p-8 pb-6 pr-6 m-auto bg-white rounded-lg shadow-2xl">
+				<div class="absolute inset-0" on:click={hideShoppingList} />
+				<div
+					class="relative w-full max-w-xl p-8 pb-6 max-h-[90vh] pr-6 m-auto bg-white rounded-lg shadow-2xl grid grid-cols-1" style="grid-template-rows: auto 1fr auto;"
+					in:fly={{duration: 400, y: 400, delay: 200}}
+					out:fly={{duration: 400, y: 400}}
+				>
 					<h2 class="pb-2">Shopping list</h2>
-					<ul class="space-y-4 text-xl list-none list-inside">
+					<ul class="space-y-6 md:space-y-4 text-lg md:text-xl h-full list-none list-inside overflow-y-scroll">
 						{#each checkableIngredients as { name, bought }}
 							<li>
-								<label class:line-through={bought} class="cursor-pointer">
-									<input class="mr-4 transform scale-150" bind:checked={bought} type="checkbox" />
-									<span>{name}</span>
-								</label>
+								<IngredientCheckbox {name} {bought} />
 							</li>
 						{/each}
 					</ul>
 					<div class="flex p-0 pt-4 m-0 mt-5 border-t border-muffin-100">
 						<button
 							class="px-4 py-2 ml-auto text-xl font-bold text-gray-800 transition-colors rounded-md bg-muffin-100 hover:bg-muffin hover:text-white"
-							on:click={() => (shoppingListVisible = false)}>Close</button
+							on:click={hideShoppingList}>Close</button
 						>
 					</div>
 				</div>
@@ -101,3 +113,5 @@
         @apply mt-8;
     }
 </style>
+
+<!-- Include classes in output: overflow-hidden -->
